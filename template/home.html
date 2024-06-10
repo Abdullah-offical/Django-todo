@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Employs Table</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>
+            Image
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      {% for emp in employees %}
+        
+      
+        
+        <tr>
+        <td>
+          <a href=" {% url 'employee_details' emp.id %} ">{{ emp.first_name }}</a>
+        </td>
+        <td>{{ emp.last_name }}</td>
+        <td>{{ emp.email_address }}</td>
+        <td>{{ emp.phone_number }}</td>
+        <td>
+            <img src="{{ emp.photo.url }}" width="100" height="100">
+        </td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
